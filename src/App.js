@@ -28,7 +28,7 @@ export default (props) => {
                   <Button
                     onPress={() => navigation.navigate("UserForm")}
                     type="clear"
-                    icon={<Icon name="add" size={25} color="blue" />}
+                    icon={<Icon name="add" size={25} color="white" />}
                   />
                 ),
               };
