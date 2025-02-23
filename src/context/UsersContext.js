@@ -7,10 +7,18 @@ const initialState = { users };
 const UsersContext = createContext({});
 
 const actions = {
+  createUser(state, action) {
+    const user = action.payload;
+    user.id = Math.random(); //gera um ID aleatório para o novo usuário
+    return {
+      ...state,
+      users: [...state.users, user], //adiciona o usuário à lista
+    };
+  },
   deleteUser(state, action) {
     const user = action.payload;
     return {
-      //...state,
+      ...state,
       users: state.users.filter((u) => u.id !== user.id), //remove o usuário da lista
     };
   },
