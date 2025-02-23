@@ -1,10 +1,13 @@
 import { Avatar, Button, Icon, ListItem } from "@rneui/themed";
-import React from "react";
+import React, { useContext } from "react";
 import { Alert, FlatList, StyleSheet, View } from "react-native";
 
-import users from "../data/users";
+//components
+import UsersContext from "../context/UsersContext";
 
 export default (props) => {
+  const { state } = useContext(UsersContext);
+
   function confirmUserDeletion(user) {
     Alert.alert("Excluir usuário", "Deseja excluir o usuário?", [
       {
@@ -25,7 +28,7 @@ export default (props) => {
         <Button
           onPress={() => props.navigation.navigate("UserForm", user)}
           type="clear"
-          icon={<Icon name="edit" size={25} color="orange" />}
+          icon={<Icon name="edit" size={25} color="#00AEEF" />}
         />
         <Button
           onPress={() => confirmUserDeletion(user)}
@@ -56,7 +59,7 @@ export default (props) => {
     <View style={styles.container}>
       <FlatList
         keyExtractor={(user) => user.id.toString()}
-        data={users}
+        data={state.users}
         renderItem={getUserItem}
       />
     </View>

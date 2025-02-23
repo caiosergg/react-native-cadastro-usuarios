@@ -9,14 +9,14 @@ export default ({ route, navigation }) => {
       <TextInput
         style={style.input}
         onChangeText={(name) => setUser({ ...user, name })}
-        placeholder="Informe o Nome"
+        placeholder="Informe o nome"
         value={user.name}
       />
       <Text>Email</Text>
       <TextInput
         style={style.input}
         onChangeText={(email) => setUser({ ...user, email })}
-        placeholder="Informe o Email"
+        placeholder="Informe o email"
         value={user.email}
       />
       <Text>URL do Avatar</Text>
