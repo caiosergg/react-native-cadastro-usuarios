@@ -15,11 +15,20 @@ const actions = {
       users: [...state.users, user], //adiciona o usuário à lista
     };
   },
+  updateUser(state, action) {
+    const updated = action.payload;
+    return {
+      ...state,
+      users: state.users.map((u) => (u.id === updated.id ? updated : u)),
+      //substitui o usuário correspondente pelo atualizado
+    };
+  },
   deleteUser(state, action) {
     const user = action.payload;
     return {
       ...state,
-      users: state.users.filter((u) => u.id !== user.id), //remove o usuário da lista
+      users: state.users.filter((u) => u.id !== user.id),
+      //remove o usuário da lista
     };
   },
 };
